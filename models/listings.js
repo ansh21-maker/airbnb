@@ -6,26 +6,14 @@ const listingSchema= new mongoose.Schema({
         type:String,
         required:true
     },
-    description:{
-        type:String,
-    },
     image:{
-         title: String,        
-        imageUrl: String 
-
+        url: String,
+       filename: String
     },
-    price:{
-        type:Number,
-         required:true
-    },
-    location:{
-        type:String,
-         required:true
-    },  
-    country:{
-        type:String,
-         required:true
-    },
+    description:String,
+    price:Number,
+    location:String,
+    country:String,
 })
 
 

@@ -10,9 +10,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "ejs": "^5.0.1",
+    "ejs-mate": "^4.0.0",
     "express": "^5.2.1",
+    "method": "^2.0.0",
+    "method-override": "^3.0.0",
     "mongoose": "^9.3.3",
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "override": "^0.0.1"
   }
 }

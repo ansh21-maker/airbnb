@@ -1,0 +1,79 @@
+<%layout("/layout/boilerplate") %>
+<body>
+  <br />
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h1>Edit Your information</h1>
+      <form method="post" action="/listings/<%= listings._id %>?_method=put">
+        <div class="mb-3">
+          <label for="title" class="form-label">Change Title</label><br />
+          <input
+            class="form-control"
+            type="text"
+            name="newData[title]"
+            id=""
+            placeholder="Enter your title"
+            value="<%= listings.title %>"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label><br />
+          <textarea
+            class="form-control"
+            type="text"
+            name="newData[description]"
+            id=""
+          >
+ <%= listings.description %></textarea
+          >
+        </div>
+
+        <div class="row">
+          <div class="col-4">
+            <div class="mb-3">
+              <label for="price" class="form-label">Price</label><br />
+              <input
+                class="form-control"
+                type="number"
+                name="newData[price]"
+                id=""
+                placeholder="Enter your title price"
+                value="<%= listings.price %>"
+              />
+            </div>
+          </div>
+
+          <div class="col-8">
+            <div class="mb-3">
+              <label for="text" class="form-label"> Country</label><br />
+              <input
+                class="form-control"
+                type="text"
+                name="newData[country]"
+                id=""
+                placeholder="Enter your country"
+                value="<%= listings.country%>"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="location">location</label><br />
+          <input
+            class="form-control"
+            type="text"
+            name="newData[location]"
+            id=""
+            placeholder="Enter your location"
+            value="<%= listings.location %>"
+          />
+        </div>
+
+        <button class="form-edit-btn">Save edit</button>
+      </form>
+      <br />
+    </div>
+  </div>
+</body>

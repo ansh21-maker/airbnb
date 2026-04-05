@@ -1,0 +1,80 @@
+<%layout("/layout/boilerplate") %>
+
+<div class="row new-form">
+  <div class="col-8  offset-2 ">
+    <h1>Create a New listing</h1>
+
+    <form method="post" action="/listings">
+      <div class="mb-3">
+        <label for="title" class="form-label">Enter Title</label><br />
+        <input
+          class="form-control"
+          type="text"
+          name="newData[title]"
+          id=""
+          placeholder="Enter your title"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">Image Url</label><br />
+        <input
+          class="form-control"
+          type="url"
+          name="newData[image]"
+          placeholder="http//:enter image url"
+          id=""
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label><br />
+        <textarea
+          type="text"
+          class="form-control"
+          name="newData[description]"
+          id=""
+          placeholder="Enter your description"
+        ></textarea>
+      </div>
+
+      <div class="row price-country">
+        <div class="mb-3 col-md-4">
+          <label class="form-label" for="price">Price</label><br />
+          <input
+            type="number"
+            class="form-control"
+            name="newData[price]"
+            id=""
+            placeholder="Enter your title price"
+          />
+        </div>
+
+        <div class="mb-3 col-md-8">
+          <label for="image" class="form-label"> Country</label><br />
+          <input
+            type="text"
+            class="form-control"
+            name="newData[country]"
+            id=""
+            placeholder="Enter your country"
+          />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label"> Location</label><br />
+        <input
+          type="text"
+          class="form-control"
+          name="newData[location]"
+          id=""
+          placeholder="Enter your location"
+        />
+      </div>
+<br>
+      <button type="submit" class="btn new-form-sub-btn">Submit</button>
+    </form>
+    <br>
+  </div>
+</div>
