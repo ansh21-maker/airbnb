@@ -4,9 +4,14 @@
   <div class="row">
     <div class="col-8 offset-2">
       <h1>Edit Your information</h1>
-      <form method="post" action="/listings/<%= listings._id %>?_method=put">
+      <form
+        method="post"
+        class="needs-validation"
+        action="/listings/<%= listings._id %>?_method=put"
+        novalidate
+      >
         <div class="mb-3">
-          <label for="title" class="form-label">Change Title</label><br />
+          <label for="title" >Change Title</label><br />
           <input
             class="form-control"
             type="text"
@@ -15,6 +20,7 @@
             placeholder="Enter your title"
             value="<%= listings.title %>"
           />
+          <div class="valid-feedback">Looks good!</div>
         </div>
 
         <div class="mb-3">
@@ -24,9 +30,13 @@
             type="text"
             name="newData[description]"
             id=""
+            required
           >
  <%= listings.description %></textarea
           >
+          <div class="invalid-feedback">
+            pleace give a substaibel description
+          </div>
         </div>
 
         <div class="row">
@@ -40,7 +50,9 @@
                 id=""
                 placeholder="Enter your title price"
                 value="<%= listings.price %>"
+                required
               />
+              <div class="invalid-feedback">Please Enter a valid price.</div>
             </div>
           </div>
 
@@ -54,7 +66,9 @@
                 id=""
                 placeholder="Enter your country"
                 value="<%= listings.country%>"
+                required
               />
+              <div class="invalid-feedback">Please Enter a country.</div>
             </div>
           </div>
         </div>
@@ -68,7 +82,9 @@
             id=""
             placeholder="Enter your location"
             value="<%= listings.location %>"
+            required
           />
+          <div class="invalid-feedback">Please provide a valid city.</div>
         </div>
 
         <button class="form-edit-btn">Save edit</button>

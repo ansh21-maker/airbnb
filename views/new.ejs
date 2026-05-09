@@ -4,7 +4,7 @@
   <div class="col-8  offset-2 ">
     <h1>Create a New listing</h1>
 
-    <form method="post" action="/listings">
+    <form method="post" action="/listings" class="needs-validation" novalidate>
       <div class="mb-3">
         <label for="title" class="form-label">Enter Title</label><br />
         <input
@@ -13,7 +13,10 @@
           name="newData[title]"
           id=""
           placeholder="Enter your title"
-        />
+          required
+        /> <div class="valid-feedback">
+      Looks good!
+    </div>
       </div>
 
       <div class="mb-3">
@@ -24,7 +27,11 @@
           name="newData[image]"
           placeholder="http//:enter image url"
           id=""
+          required
         />
+        <div class="invalid-feedback">
+        pleace Enter image url
+      </div>
       </div>
 
       <div class="mb-3">
@@ -35,7 +42,11 @@
           name="newData[description]"
           id=""
           placeholder="Enter your description"
+          required
         ></textarea>
+         <div class="invalid-feedback">
+        pleace give a substaibel description
+      </div>
       </div>
 
       <div class="row price-country">
@@ -47,7 +58,11 @@
             name="newData[price]"
             id=""
             placeholder="Enter your title price"
+            required
           />
+          <div class="invalid-feedback">
+      Please Enter a valid price.
+    </div>
         </div>
 
         <div class="mb-3 col-md-8">
@@ -58,7 +73,11 @@
             name="newData[country]"
             id=""
             placeholder="Enter your country"
+            required
           />
+           <div class="invalid-feedback">
+      Please Enter a country.
+    </div>
         </div>
       </div>
 
@@ -70,7 +89,11 @@
           name="newData[location]"
           id=""
           placeholder="Enter your location"
+          required
         />
+         <div class="invalid-feedback">
+      Please provide a valid city.
+    </div>
       </div>
 <br>
       <button type="submit" class="btn new-form-sub-btn">Submit</button>

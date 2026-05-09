@@ -4,17 +4,13 @@
 <div class="container">
  
   <div class="row" >
- 
     <div class="col-8  offset-2">
-          <h2>Listing details</h2><br>
+          <h2><%=listings.title %></h2><br>
       <img class="sow-img" src="<%=listings.image.url%>" alt="" />
       <br />
       <br />
-      <h5><%=listings.title %></h5>
-      <%=listings.title %> <br />
       <%=listings.description %><br />
-      &#x20B9; <%=listings.price.toLocaleString("en-IN")%><br />
-      <%=listings.location %><br />
+        &#x20B9; <%= listings.price ? Number(listings.price).toLocaleString("en-IN") : "N/A" %><br />      <%=listings.location %><br />
       <%=listings.country %><br /><br />
       <div class="showBtn">
         <a href="/listings/<%=listings._id %>/edit"
@@ -29,6 +25,59 @@
         </form>
      
       </div>
+     
+      <hr>
+
+      <form action="/listings/<%= listings._id %>/reviews" method="POST" class="needs-validation" novalidate>
+
+  <h4>Leave your review</h4>
+
+  <label class="form-label">Rating</label>
+  <input type="range" name="review[rating]" min="1" max="5" step="1" value="3" class="form-range">
+
+  <label class="form-label">Comment</label>
+  <textarea
+    class="form-control"
+    name="review[comment]"
+    placeholder="Enter your review"
+    rows="3"
+    required
+  ></textarea>
+
+  <div class="invalid-feedback">
+    Please submit some comment for review
+  </div>
+
+  <br>
+  <button class="btn btn-outline-dark">Submit</button>
+</form>
+<hr>
+
+ <h4>All Reviews</h4>
+
+<div class="row">
+      <% if(listings.reviews.length > 0){ %>
+        <% for(let review of listings.reviews){ %>
+<div class="card col-5 mb-3 ms-3" >
+  <div class="card-body">
+    <h5 class="card-title">Raman deep</h5>
+     <p class="card-text"><%= review.comment %></p>
+      <p class="card-text"> <%= review.rating %>⭐</p>
+      <form 
+  method="POST" 
+  action="/listings/<%= listings._id %>/reviews/<%= review._id %>?_method=DELETE"
+  onsubmit="return confirm('Delete this review?');"
+>
+  <button type="submit" class="btn btn-dark">Delete</button>
+</form>
+  </div>
+</div>
+        <% } %>
+      <% } else { %>
+        <p>No reviews yet</p>
+      <% } %>
+      </div>
+
     </div>
   </div>
      <br>
